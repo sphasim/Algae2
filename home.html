@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #cycler {
+      position: relative;
+    }
+    
+    #cycler img {
+      position: absolute;
+      z-index: 1
+    }
+    
+    #cycler img.active {
+      z-index: 3
+    }
+    /*Rahul Picture CSS*/
+    /*
+     * Center the slider by wrapping it in a container
+     */
+    
+    .slider-container {
+      text-align: center;
+    }
+    /*
+         * Another container that holds the actual background of the slider,
+         * with padding to make sure the handle doesn't go outside of the background.
+         */
+    
+    .slider-bg {
+      background: url('img/Tube.png');
+      height: 206px;
+      width: 28px;
+      padding-top: 20px;
+      padding-bottom: 7px;
+      margin: 0 auto;
+    }
+    /*
+             * The actual element holding the slide handler
+             */
+    
+    .ui-slider {
+      height: 206px;
+      width: 62px;
+      background: url('img/Tube.png');
+      // Overrides
+      -moz-border-radius-topleft: 14px;
+      -webkit-border-top-left-radius: 14px;
+      -khtml-border-top-left-radius: 14px;
+      border-top-left-radius: 14px;
+      -moz-border-radius-topright: 14px;
+      -webkit-border-top-right-radius: 14px;
+      -khtml-border-top-right-radius: 14px;
+      border-top-right-radius: 14px;
+      -moz-border-radius-bottomleft: 14px;
+      -webkit-border-bottom-left-radius: 14px;
+      -khtml-border-bottom-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      -moz-border-radius-bottomright: 14px;
+      -webkit-border-bottom-right-radius: 14px;
+      -khtml-border-bottom-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+    
+    .ui-slider-handle {
+      width: 70px !important;
+      height: 35px !important;
+      background: url(img/Thumb.png) 0% 0% ! important;
+      z-index: 2;
+      // Overrides
+      left: 5px !important;
+      .border-radius(0 0 0 0);
+      border: 0px !important;
+    }
+    
+    .ui-slider-range {
+      width: 10px;
+      background: url(img/element.png) 0% 0%;
+    }
+    
+    .ui-widget-header {
+      border: 1px solid #dddddd;
+      background: url(img/element.png) no-repeat 50% 50%;
+      color: #444444;
+      -moz-border-radius: 52px;
+      border-radius: 52px;
+      margin-left: 7px;
+    }
+    
+    .ui-widget-content {
+      border: none !important;
+    }
+    /*.slider {
+            width: 1024px;
+            margin: 2em auto;
+        }*/
+    
+    .slider-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      float: left;
+    }
+    
+    .slide {
+      float: left;
+      position: absolute;
+      width: 100%;
+      height: 101%;
+      opacity: 0;
+      transition: opacity 1s linear;
+      z-index: 10;    }
+    
+    #slider_img {
+      height: 100%;
+      width: 100%;
+    }
+    
+    .img_result {
+      float: left;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity 3s linear;
+      z-index: 20;
+    }
+    
+    .exit_play_btns {
+      float: left;
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      opacity: 1;
+      transition: opacity 3s linear;
+      z-index: 20;
+    }
+    
+    #temp_slider_1 {
+      margin-top: 20px;
+    }
+    
+    #scale {
+      margin-top: 10px;
+    }
+    /*Modal Css*/
+    /* The Modal (background) */
+  </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Algae Game</title>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/algae_style.css">
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Rahul Code begins -->
+  <div class="wrap">
+    <div class="container">
+      <div class="imageTwo image" class="slider-wrapper">
+        <!-- <img src="img/test2.png" style="width:100%; z-index:5;" halt=""> -->
+        <div class="slider" id="main-slider">
+          <!-- outermost container element -->
+          <div class="slider-wrapper" id="slider_img">
+            <div id="PlayExit" style="display: inline-block; vertical-align: super; z-index:20"></div>
+            <!-- innermost wrapper element -->
+            <!-- <img src="img/Tubs-dark-green.png" alt="First" class="slide" />
+                        <img src="img/Tubs-green.png" alt="Second" class="slide" />
+                        <img src="img/Tubs-light-green.png" alt="Third" class="slide" />
+                        <img src="img/Tubs-brown.png" alt="Forth" class="slide" />
+                        <img src="img/Tubs-black.png" alt="Fifth" class="slide" /> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio" src="Sounds/welcome_bg.mp3"></audio>
+  <audio id="growBtn" src="Sounds/bigButtons.wav"></audio>
+  <audio id="toggleBtn" src="Sounds/toggle.wav"></audio>
+  <audio id="tick" src="Sounds/tickTock.wav"></audio>
+  <audio id="bg" src="Sounds/naturesounds_chimes.ogg"></audio>
+
+  <div id="bottom_div" style="margin-left:30px; height:30%;">
+    <!-- <p>
+  <label for="amount">Donation amount ($50 increments):</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p> -->
+    <div id="block_sliders">
+    <div id="controls" style="width:66%; border-style: solid;
+    border-width: 8px; background-color: #111d2d;height:95%; display: inline-block; margin-left:20px">
+    <div id="block_sliders">
+      <div id="sun_control" style="display:inline-block; margin-left:80px;">
+        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:48px;">
+          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+        </div>
+        <div id="temp_slider_1" style="display:inline-block;">
+          <div><img src="img/TOP.png" style="" alt=""></div>
+          <div id="slider" class="sun_slider" style="margin-top: -6px;"></div>
+          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+        </div>
+        <div class="slider_txt" style="margin-left:60px;">
+          <img src="img/sun.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+          <span><h1 class="variable_tag" style="display:inline-block;">SUN</h1></span>
+        </div>
+      </div>
+      <div id="temp_control" style="display:inline-block;">
+        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:168px;">
+          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+        </div>
+        <div id="temp_slider_1" style="display:inline-block;">
+          <div><img src="img/TOP.png" style="" alt=""></div>
+          <div id="slider" class="temprature_slider" style="margin-top: -6px;"></div>
+          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+        </div>
+        <div class="slider_txt" style="margin-left:144px;">
+          <img src="img/temperature.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+          <span><h1 class="variable_tag" style="display:inline-block;">TEMPERATURE</h1></span>
+        </div>
+      </div>
+      <div id="nutrients_control" style="display:inline-block;">
+        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:120px;">
+          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+        </div>
+        <div id="temp_slider_1" style="display:inline-block;">
+          <div><img src="img/TOP.png" style="" alt=""></div>
+          <div id="slider" class="nutrients_slider" style="margin-top: -6px;"></div>
+          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+        </div>
+        <div class="slider_txt" style="margin-left:111px;">
+          <img src="img/nutrients.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+          <span><h1 class="variable_tag" style="display:inline-block;">NUTRIENTS</h1></span>
+        </div>
+      </div>
+      <div id="diversity_control" style="display:inline-block;">
+        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
+          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+        </div>
+        <div id="temp_slider_1" style="display:inline-block;">
+          <div><img src="img/TOP.png" style="" alt=""></div>
+          <div id="slider" class="diversity_slider" style="margin-top: -6px;"></div>
+          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+        </div>
+        <div class="slider_txt" style="margin-left:78px;">
+          <img src="img/diversity.png" alt="" style="display:inline-block; vertical-align:sub;">
+          <span><h1 class="variable_tag" style="display:inline-block;">DIVERSITY</h1></span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div id="cycler" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10">
+
+      <!-- <input type="image" src="img/Grow.png" style="margin-right:40px;" id="btnImgGrow"/>
+  <input type="image" src="img/Harvest.png" id="btnImgHav"  style="cursor:pointer;"/> -->
+
+      <input type="image" src="img/Grow.png" id="btnImgGrow" style="margin-right:20px" />
+      <!-- <input type="image" src="img/Harvest.png" id="btnImgHav" /> -->
+
+      <input type="image" src="img/Playagain.png" id="Playagain" style="margin-right:20px; display: none;" />
+      <input type="image" src="img/Exit.png" id="Exit" style="display: none;" />
+      <!-- <div id = "PlayExit" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10"></div> -->
+    </div>
+
+
+
+  </div>
+
+
+  <!-- <div id="cf2" class="shadow">
+  <img class="bottom" src="img/Consel.jpg" />
+  <img class="top" src="img/Tubs_black.jpg" />
+  <img src='img/Tubs_dark_green.jpg' />
+  <img src='img/Tubs_green.jpg' />
+  <img src='img/Tubs_light_green.jpg' />
+  <img src='img/Tubs_brown.jpg' />
+  </div> -->
+
+
+</body>
+
+<script>
+  var Sun = 1;
+  var Temp = 1;
+  var Nutrients = 1;
+  var diversity = 1;
+  var countTimer = 0;
+  var showExtraOutcome = true;
+
+  $(document).ready(function() {
+
+
+
+    $('div.temprature_slider').slider({
+      orientation: 'vertical',
+      value: 1,
+      min: 0,
+      step: 1,
+      max: 2,
+      range: 'min',
+      animate: true,
+      slide: function(event, ui) {
+        $("#amount").val("$" + ui.value);
+        //get value set tem value
+        Temp = ui.value;
+        console.log("Value of Temperature slider: " + ui.value);
+        // play('toggleBtn');
+      }
+    });
+
+    console.log(Temp);
+
+    $('div.sun_slider').slider({
+      orientation: 'vertical',
+      value: 1,
+      min: 0,
+      step: 1,
+      max: 2,
+      range: 'min',
+      animate: true,
+      slide: function(event, ui) {
+        $("#amount").val("$" + ui.value);
+        Sun = ui.value;
+        console.log("Value of Sun slider: " + ui.value);
+        // play('toggleBtn');
+      }
+    });
+
+    $('div.nutrients_slider').slider({
+      orientation: 'vertical',
+      value: 1,
+      min: 0,
+      step: 1,
+      max: 2,
+      range: 'min',
+      animate: true,
+      slide: function(event, ui) {
+        $("#amount").val("$" + ui.value);
+        Nutrients = ui.value;
+        console.log("Value of Nutrients slider: " + ui.value);
+        // play('toggleBtn');
+      }
+    });
+
+    $('div.diversity_slider').slider({
+      orientation: 'vertical',
+      value: 1,
+      min: 0,
+      step: 1,
+      max: 2,
+      range: 'min',
+      animate: true,
+      slide: function(event, ui) {
+        $("#amount").val("$" + ui.value);
+        diversity = ui.value;
+        console.log("Value of Diversity slider: " + ui.value);
+        // play('toggleBtn');
+      }
+    });
+
+    $("#amount").val("$" + $("#slider").slider("value"));
+
+    // $("#growButton").click(function() {
+    //     alert("harvest");
+    // });
+  });
+
+  document.getElementById("btnImgGrow").onclick = function() {
+    console.log("Clicked Grow");
+    // play('growBtn');
+    testGrow();
+
+    //add harvest button
+
+    console.log(Sun);
+    console.log(Temp);
+    console.log(Nutrients);
+    console.log(diversity);
+  }
+
+  var Outcome = document.createElement("IMG");
+
+  var settings_OOC = "0,1,1,0";
+  var settings_NG = "0,1,1,0";
+  var settings_Crash = "0,1,1,0";
+  var settings_MG = "0,1,1,0";
+  var settings_LG = "0,1,1,0";
+
+  function Slideshow(element) {
+    this.el = document.querySelector(element);
+    this.init();
+  }
+
+  Slideshow.prototype = {
+    init: function() {
+      this.wrapper = this.el.querySelector(".slider-wrapper");
+      this.slides = this.el.querySelectorAll(".slide");
+      this.previous = this.el.querySelector(".slider-previous");
+      this.next = this.el.querySelector(".slider-next");
+      this.index = 0;
+      this.total = this.slides.length;
+      this.timer = null;
+
+      this.action();
+      //this.stopStart();
+    },
+    _slideTo: function(slide) {
+      var currentSlide = this.slides[slide];
+      currentSlide.style.opacity = 1;
+
+      for (var i = 0; i < this.slides.length; i++) {
+        var slide = this.slides[i];
+        if (slide !== currentSlide) {
+          slide.style.opacity = 0;
+        }
+      }
+    },
+
+    action: function() {
+      var self = this;
+      // play('tick');
+      console.log("index - " + self.index);
+      self.timer = setInterval(function() {
+        self.index++;
+
+        if (self.index == self.slides.length) {
+
+          if (showExtraOutcome == true) {
+            Burnt();
+          }
+          clearInterval(self.timer);
+          self.timer = null;
+          self.index = 0;
+
+
+        }
+        self._slideTo(self.index);
+
+      }, 3000);
+    },
+    // action: function() {
+    //     var self = this;
+
+    //     for (var i = 0; i < self.slides.length-1; i++) {
+    //         self.timer = setTimeout(function(){
+
+    //             console.log("Index - " + i);
+    //             self._slideTo(i);
+    //         }, 1000)
+
+    //     }
+
+    // },
+    stopStart: function() {
+      var self = this;
+      self.el.addEventListener("mouseover", function() {
+        // clearInterval(self.timer);
+        // self.timer = null;
+        self.action();
+
+      }, false);
+      self.el.addEventListener("mouseout", function() {
+        self.action();
+
+      }, false);
+    }
+
+
+  };
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    //var slider = new Slideshow( "#main-slider" );
+
+  });
+
+  function testGrow() {
+
+    /*
+    if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) { //Subset of Crash
+        optimum_out_come();
+        var slider = new Slideshow("#main-slider");
+    } else if (Sun == 0) {
+        No_Growth();
+        // var slider = new Slideshow("#main-slider");
+    } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {
+        Crash();
+        var slider = new Slideshow("#main-slider");
+    } else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+    } else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+    } else {
+        console.log("Please be realistic with your settings");
+        alert("Please try different settings!");
+    };
+
+    */
+
+    var index = Sun + "" + Temp + "" + Nutrients + "" + diversity;
+    console.log(index);
+
+    switch (index){
+        // Optimum Growth:
+        case "2111":
+            optimum_out_come();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2112":
+            optimum_out_come();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        // Low Growth:
+        case "2101":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1201":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1010":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1100":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;   
+
+        case "1000":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "2001":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "2002":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1002":
+            Low_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;      
+
+        // Medium Growth:
+        case "1111":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2201":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;  
+
+        case "2021":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "2011":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1211":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1021":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1011":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1101":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1110":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break; 
+
+        case "1112":
+            Medium_Growth();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        // Crash:
+        case "2211":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2121":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2110":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1121":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1220":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2221":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "2222":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1221":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;
+
+        case "1222":
+            Crash();
+            var slider = new Slideshow("#main-slider");
+            break;  
+
+        // Everything else - No Growth
+        default:
+            No_Growth();
+            break;
+    }
+
+      setInterval(function() {
+        countTimer = countTimer + 1;
+        console.log("Sec - " + countTimer);
+      }, 1000);
+  }
+
+  //Haverst btn
+
+  function harvest(){
+    var HarvestBtn = document.createElement("INPUT");
+    HarvestBtn.setAttribute("type", "image")
+    HarvestBtn.setAttribute("src", "img/Harvest.png");
+    HarvestBtn.setAttribute("id", "btnImgHav");
+    document.getElementById("cycler").appendChild(HarvestBtn);
+
+    //hide grow btn
+    document.getElementById("btnImgGrow").style.display = "none";
+
+    //disable grow btn
+    // document.getElementById("btnImgGrow").disabled = true;
+
+  }
+
+  // set slider div background
+
+  function blocksliders(){
+    document.getElementById("block_sliders").style.background = "red";
+    document.getElementById("block_sliders").style.zIndex = 1000;
+  }
+
+  // blocksliders()
+
+
+
+  function optimum_out_come() {
+    var Tubs_light_green = document.createElement("IMG");
+    Tubs_light_green.setAttribute("src", "img/Tubs-light-green.png");
+    Tubs_light_green.setAttribute("class", "slide");
+    Tubs_light_green.setAttribute("alt", "First");
+    document.getElementById("slider_img").appendChild(Tubs_light_green);
+
+    var Tubs_green = document.createElement("IMG");
+    Tubs_green.setAttribute("src", "img/Tubs-green.png");
+    Tubs_green.setAttribute("class", "slide");
+    Tubs_green.setAttribute("alt", "Second");
+    document.getElementById("slider_img").appendChild(Tubs_green);
+
+    var Tubs_dark_green = document.createElement("IMG");
+    Tubs_dark_green.setAttribute("src", "img/Tubs-dark-green.png");
+    Tubs_dark_green.setAttribute("class", "slide");
+    Tubs_dark_green.setAttribute("alt", "Third");
+    document.getElementById("slider_img").appendChild(Tubs_dark_green);
+
+    var Tubs_brown = document.createElement("IMG");
+    Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
+    Tubs_brown.setAttribute("class", "slide");
+    Tubs_brown.setAttribute("alt", "Forth");
+    document.getElementById("slider_img").appendChild(Tubs_brown);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+
+    harvest();
+
+    // show result image
+    document.getElementById("btnImgHav").onclick = function() {
+      document.getElementById("btnImgHav").disabled = true;
+      // play('growBtn');
+      if (countTimer < 3) {
+        Outcome.setAttribute("src", "img/Try-Again.png");
+        Outcome.setAttribute("class", "img_result");
+        Outcome.setAttribute("id", "try_againImg");
+
+        document.getElementById("slider_img").appendChild(Outcome);
+
+        document.getElementById("try_againImg").onclick = function() {
+
+          window.location.href = 'home.html';
+        }
+      } else {
+        Outcome.setAttribute("src", "img/Algae_Assets/Optimum-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+      }
+      showExtraOutcome = false;
+      countTimer = 0;
+      stop('tick');
+    }
+
+
+    console.log("Optimum Outcome");
+    // alert("Optimum Outcome");
+  }
+
+
+  function No_Growth() {
+    // show result image
+    // document.getElementById("btnImgGrow").onclick = function() {
+    Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
+    Outcome.setAttribute("class", "img_result");
+    document.getElementById("slider_img").appendChild(Outcome);
+
+    hideShowCTA();
+    activateHomeExit();
+    showExtraOutcome = false;
+
+    // }
+
+    stop('tick');
+    console.log("No Growth");
+    // alert("No Growth");
+  }
+
+  function Crash() {
+    var Tubs_light_green = document.createElement("IMG");
+    Tubs_light_green.setAttribute("src", "img/Tubs-light-green.png");
+    Tubs_light_green.setAttribute("class", "slide");
+    Tubs_light_green.setAttribute("alt", "First");
+    document.getElementById("slider_img").appendChild(Tubs_light_green);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+
+    harvest();
+
+    // show result image
+    document.getElementById("btnImgHav").onclick = function() {
+      Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
+      Outcome.setAttribute("class", "img_result");
+      document.getElementById("slider_img").appendChild(Outcome);
+
+      showExtraOutcome = false;
+      hideShowCTA();
+      activateHomeExit();
+      stop('tick');
+    }
+
+    console.log("Crash Crash");
+    // alert("Crash Crash");
+  }
+
+  function Medium_Growth() {
+    var Tubs_light_green = document.createElement("IMG");
+    Tubs_light_green.setAttribute("src", "img/Tubs-light-green.png");
+    Tubs_light_green.setAttribute("class", "slide");
+    Tubs_light_green.setAttribute("alt", "First");
+    document.getElementById("slider_img").appendChild(Tubs_light_green);
+
+    var Tubs_green = document.createElement("IMG");
+    Tubs_green.setAttribute("src", "img/Tubs-green.png");
+    Tubs_green.setAttribute("class", "slide");
+    Tubs_green.setAttribute("alt", "Second");
+    document.getElementById("slider_img").appendChild(Tubs_green);
+
+    // var Tubs_dark_green = document.createElement("IMG");
+    //     Tubs_dark_green.setAttribute("src", "img/Tubs-dark-green.png");
+    //     Tubs_dark_green.setAttribute("class", "slide");
+    //     Tubs_dark_green.setAttribute("alt", "Third");
+    //     document.getElementById("slider_img").appendChild(Tubs_dark_green);
+
+    var Tubs_brown = document.createElement("IMG");
+    Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
+    Tubs_brown.setAttribute("class", "slide");
+    Tubs_brown.setAttribute("alt", "Forth");
+    document.getElementById("slider_img").appendChild(Tubs_brown);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+
+    //add harvest button and hide grow btn
+    harvest();
+
+
+    // show result image
+    // show result image
+    document.getElementById("btnImgHav").onclick = function() {
+      if (countTimer < 3) {
+        Outcome.setAttribute("src", "img/Try-Again.png");
+        Outcome.setAttribute("class", "img_result");
+        Outcome.setAttribute("id", "try_againImg");
+
+        document.getElementById("slider_img").appendChild(Outcome);
+
+        document.getElementById("try_againImg").onclick = function() {
+
+          window.location.href = 'home.html';
+        }
+      } else {
+        Outcome.setAttribute("src", "img/Algae_Assets/Medium-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+      }
+      showExtraOutcome = false;
+      countTimer = 0;
+      stop('tick');
+
+    }
+
+
+    console.log("Medium Growth");
+    // alert("Medium Growth");
+  }
+
+  function Low_Growth() {
+    var Tubs_light_green = document.createElement("IMG");
+    Tubs_light_green.setAttribute("src", "img/Tubs-light-green.png");
+    Tubs_light_green.setAttribute("class", "slide");
+    Tubs_light_green.setAttribute("alt", "First");
+    document.getElementById("slider_img").appendChild(Tubs_light_green);
+
+    // var Tubs_green = document.createElement("IMG");
+    //     Tubs_green.setAttribute("src", "img/Tubs-green.png");
+    //     Tubs_green.setAttribute("class", "slide");
+    //     Tubs_green.setAttribute("alt", "Second");
+    //     document.getElementById("slider_img").appendChild(Tubs_green);
+
+    // var Tubs_dark_green = document.createElement("IMG");
+    //     Tubs_dark_green.setAttribute("src", "img/Tubs-dark-green.png");
+    //     Tubs_dark_green.setAttribute("class", "slide");
+    //     Tubs_dark_green.setAttribute("alt", "Third");
+    //     document.getElementById("slider_img").appendChild(Tubs_dark_green);
+
+    var Tubs_brown = document.createElement("IMG");
+    Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
+    Tubs_brown.setAttribute("class", "slide");
+    Tubs_brown.setAttribute("alt", "Forth");
+    document.getElementById("slider_img").appendChild(Tubs_brown);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+
+    harvest();
+
+    // show result image
+    document.getElementById("btnImgHav").onclick = function() {
+      if (countTimer < 3) {
+        Outcome.setAttribute("src", "img/Try-Again.png");
+        Outcome.setAttribute("class", "img_result");
+        Outcome.setAttribute("id", "try_againImg");
+        document.getElementById("slider_img").appendChild(Outcome);
+
+        document.getElementById("try_againImg").onclick = function() {
+
+          window.location.href = 'home.html';
+        }
+      } else {
+        Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+      }
+      showExtraOutcome = false;
+      countTimer = 0;
+      stop('tick');
+    }
+
+    console.log("Low Growth");
+  }
+
+
+  function Burnt(){
+    harvest();
+    // There should be different message here
+    // to display that algae is burnt due to 
+    // late harvesting!
+    Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
+    Outcome.setAttribute("class", "img_result");
+    document.getElementById("slider_img").appendChild(Outcome);
+
+    hideShowCTA();
+    activateHomeExit();
+    showExtraOutcome = false;
+
+    stop('tick');
+    console.log("Burnt");
+  }
+
+
+  function hideShowCTA() {
+    //to hide the slider thumb handler
+
+    var thumbDivs = document.getElementsByClassName("ui-slider-handle");
+
+    for (var i = 0; i < thumbDivs.length; i = i + 1) {
+      thumbDivs[i].style.display = "none";
+    }
+
+
+    //Hide the grow and harvest Buttons
+    document.getElementById("btnImgGrow").style.display = "none";
+    document.getElementById("btnImgHav").style.display = "none";
+
+    //Show the Play Again and Exit Buttons
+    document.getElementById("Playagain").style.display = "inline-block";
+    document.getElementById("Exit").style.display = "inline-block";
+    console.log("Clicked harvest");
+  }
+
+  function activateHomeExit() {
+    //call this when play again is clicked
+    document.getElementById("Playagain").onclick = function() {
+        // play('growBtn');
+        window.location.href = 'home.html';
+        console.log("Play Again");
+      }
+      // call this wwhen exit is clicked
+    document.getElementById("Exit").onclick = function() {
+      // play('growBtn');
+      window.location.href = 'index.html';
+      console.log("Exit");
+    }
+  }
+
+  function play(id) {
+    // var audio = document.getElementById(id);
+    // audio.play();
+  }
+
+  function stop(id) {
+    // console.log(id);
+
+    // var audio = document.getElementById(id);
+    // audio.pause();
+    // audio.currentTime = 0;
+  }
+</script>
+
+
+</html>
