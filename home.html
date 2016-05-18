@@ -691,6 +691,7 @@
     HarvestBtn.setAttribute("id", "btnImgHav");
     document.getElementById("cycler").appendChild(HarvestBtn);
 
+
     //hide grow btn
     document.getElementById("btnImgGrow").style.display = "none";
 
@@ -745,7 +746,6 @@
 
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
-      document.getElementById("btnImgHav").disabled = true;
       // play('growBtn');
       if (countTimer < 3) {
         Outcome.setAttribute("src", "img/Try-Again.png");
@@ -757,6 +757,9 @@
         document.getElementById("try_againImg").onclick = function() {
 
           window.location.href = 'home.html';
+
+      // document.getElementById("btnImgHav").disabled = true;
+      document.getElementById("btnImgHav").style.display = "none";
         }
       } else {
         Outcome.setAttribute("src", "img/Algae_Assets/Optimum-Outcome.png");
@@ -764,7 +767,10 @@
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
         activateHomeExit();
+      // document.getElementById("btnImgHav").disabled = true;
+      document.getElementById("btnImgHav").style.display = "none";
       }
+
       showExtraOutcome = false;
       countTimer = 0;
       stop('tick');
@@ -782,6 +788,7 @@
     Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
     Outcome.setAttribute("class", "img_result");
     document.getElementById("slider_img").appendChild(Outcome);
+    // document.getElementById("btnImgHav").style.display = "none";
 
     hideShowCTA();
     activateHomeExit();
@@ -814,11 +821,16 @@
       Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
       Outcome.setAttribute("class", "img_result");
       document.getElementById("slider_img").appendChild(Outcome);
+      document.getElementById("btnImgHav").style.display = "none";
 
-      showExtraOutcome = false;
       hideShowCTA();
       activateHomeExit();
       stop('tick');
+
+      showExtraOutcome = false;
+      // hideShowCTA();
+      // activateHomeExit();
+      
     }
 
     console.log("Crash Crash");
@@ -873,11 +885,15 @@
         document.getElementById("try_againImg").onclick = function() {
 
           window.location.href = 'home.html';
+
+          document.getElementById("btnImgHav").style.display = "none";
         }
       } else {
         Outcome.setAttribute("src", "img/Algae_Assets/Medium-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
+        document.getElementById("btnImgHav").style.display = "none";
+
         hideShowCTA();
         activateHomeExit();
       }
@@ -936,11 +952,13 @@
         document.getElementById("try_againImg").onclick = function() {
 
           window.location.href = 'home.html';
+          document.getElementById("btnImgHav").style.display = "none";
         }
       } else {
         Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
+        document.getElementById("btnImgHav").style.display = "none";
         hideShowCTA();
         activateHomeExit();
       }
@@ -954,17 +972,17 @@
 
 
   function Burnt(){
-    harvest();
-    // There should be different message here
-    // to display that algae is burnt due to 
-    // late harvesting!
+    // show result image
+    // document.getElementById("btnImgGrow").onclick = function() {
     Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
     Outcome.setAttribute("class", "img_result");
     document.getElementById("slider_img").appendChild(Outcome);
+    document.getElementById("btnImgHav").style.display = "none";
 
     hideShowCTA();
     activateHomeExit();
     showExtraOutcome = false;
+    // alert("No Growth");
 
     stop('tick');
     console.log("Burnt");
@@ -983,8 +1001,9 @@
 
     //Hide the grow and harvest Buttons
     document.getElementById("btnImgGrow").style.display = "none";
-    document.getElementById("btnImgHav").style.display = "none";
+    // document.getElementById("btnImgHav").style.display = "none";
 
+    console.log("Clicked harvest 0");
     //Show the Play Again and Exit Buttons
     document.getElementById("Playagain").style.display = "inline-block";
     document.getElementById("Exit").style.display = "inline-block";
@@ -993,6 +1012,7 @@
 
   function activateHomeExit() {
     //call this when play again is clicked
+    console.log("Play Again 0");
     document.getElementById("Playagain").onclick = function() {
         // play('growBtn');
         window.location.href = 'home.html';
