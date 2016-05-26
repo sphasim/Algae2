@@ -124,7 +124,7 @@
       height: 100%;
       opacity: 1;
       transition: opacity 3s linear;
-      z-index: 20;
+      z-index: 99;
     }
     
     .exit_play_btns {
@@ -385,7 +385,7 @@
 
   document.getElementById("btnImgGrow").onclick = function() {
     console.log("Clicked Grow");
-    // play('growBtn');
+    play('growBtn');
     testGrow();
 
     //add harvest button
@@ -426,7 +426,7 @@
       var currentSlide = this.slides[slide];
       currentSlide.style.opacity = 1;
 
-      for (var i = 0; i < this.slides.length; i++) {
+      for (var i = 1; i < this.slides.length; i++) {
         var slide = this.slides[i];
         if (slide !== currentSlide) {
           slide.style.opacity = 0;
@@ -437,24 +437,31 @@
     action: function() {
       var self = this;
       // play('tick');
-      console.log("index - " + self.index);
-      self.timer = setInterval(function() {
-        self.index++;
-
-        if (self.index == self.slides.length) {
-
-          if (showExtraOutcome == true) {
-            Burnt();
-          }
-          clearInterval(self.timer);
-          self.timer = null;
-          self.index = 0;
-
-
-        }
+      
+      if (self.index == 0){
         self._slideTo(self.index);
+        self.index++;
+      } 
 
-      }, 3000);
+      if (self.index > 0){
+        self.timer = setInterval(function() {
+          self.index++;
+
+          if (self.index == self.slides.length) {
+
+            if (showExtraOutcome == true) {
+              Burnt();
+            }
+            clearInterval(self.timer);
+            self.timer = null;
+            self.index = 0;
+
+
+          }
+          self._slideTo(self.index);
+
+        }, 3000);
+      }
     },
     // action: function() {
     //     var self = this;
@@ -494,31 +501,33 @@
 
   function testGrow() {
 
-    /*
-    if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) { //Subset of Crash
-        optimum_out_come();
-        var slider = new Slideshow("#main-slider");
-    } else if (Sun == 0) {
-        No_Growth();
-        // var slider = new Slideshow("#main-slider");
-    } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {
-        Crash();
-        var slider = new Slideshow("#main-slider");
-    } else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
-        Medium_Growth();
-        var slider = new Slideshow("#main-slider");
-    } else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
-        Low_Growth();
-        var slider = new Slideshow("#main-slider");
-    } else {
-        console.log("Please be realistic with your settings");
-        alert("Please try different settings!");
-    };
+    
+    // if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) { //Subset of Crash
+    //     optimum_out_come();
+    //     var slider = new Slideshow("#main-slider");
+    // } else if (Sun == 0) {
+    //     No_Growth();
+    //     // var slider = new Slideshow("#main-slider");
+    // } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {
+    //     Crash();
+    //     var slider = new Slideshow("#main-slider");
+    // } else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
+    //     Medium_Growth();
+    //     var slider = new Slideshow("#main-slider");
+    // } else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
+    //     Low_Growth();
+    //     var slider = new Slideshow("#main-slider");
+    // } else {
+    //     console.log("Please be realistic with your settings");
+    //     alert("Please try different settings!");
+    // };
 
-    */
+    
 
     var index = Sun + "" + Temp + "" + Nutrients + "" + diversity;
     console.log(index);
+
+
 
     switch (index){
         // Optimum Growth:
@@ -624,55 +633,57 @@
             var slider = new Slideshow("#main-slider");
             break;
 
-        // Crash:
-        case "2211":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // // Crash:
+        // case "2211":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "2121":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "2121":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "2110":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "2110":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "1121":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "1121":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "1220":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "1220":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "2221":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "2221":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "2222":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "2222":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "1221":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;
+        // case "1221":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;
 
-        case "1222":
-            Crash();
-            var slider = new Slideshow("#main-slider");
-            break;  
+        // case "1222":
+        //     Crash();
+        //     var slider = new Slideshow("#main-slider");
+        //     break;  
 
         // Everything else - No Growth
         default:
-            No_Growth();
+        // NoGrowthCrushRapid();
+        Rapid_Growth();
+        var slider = new Slideshow("#main-slider")
             break;
     }
 
@@ -680,6 +691,21 @@
         countTimer = countTimer + 1;
         console.log("Sec - " + countTimer);
       }, 1000);
+  }
+
+  function NoGrowthCrushRapid(){
+
+    if (Sun == 0) {
+      No_Growth();
+    };
+
+    if (countTimer < 4) {
+      //call rapid growth
+      Rapid_Growth();
+    } else if (countTimer > 4) {
+      //call CRUSH
+      CRUSH();
+    };
   }
 
   //Haverst btn
@@ -716,6 +742,7 @@
     Tubs_light_green.setAttribute("src", "img/Tubs-light-green.png");
     Tubs_light_green.setAttribute("class", "slide");
     Tubs_light_green.setAttribute("alt", "First");
+    Tubs_light_green.setAttribute("name", "Tubs_light_green");
     document.getElementById("slider_img").appendChild(Tubs_light_green);
 
     var Tubs_green = document.createElement("IMG");
@@ -746,8 +773,11 @@
 
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
-      // play('growBtn');
+      //hide haverst button
+      document.getElementById("btnImgHav").style.display = "none";
+      play('growBtn');
       if (countTimer < 3) {
+        
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
@@ -755,14 +785,108 @@
         document.getElementById("slider_img").appendChild(Outcome);
 
         document.getElementById("try_againImg").onclick = function() {
-
+          play('growBtn');
           window.location.href = 'home.html';
 
       // document.getElementById("btnImgHav").disabled = true;
       document.getElementById("btnImgHav").style.display = "none";
         }
-      } else {
+      } else if (countTimer >=3 && countTimer < 6){
+        Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+      document.getElementById("btnImgHav").style.display = "none";
+      } else if (countTimer >=6 && countTimer < 9) {
         Outcome.setAttribute("src", "img/Algae_Assets/Optimum-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        document.getElementById("btnImgHav").style.display = "none";
+        hideShowCTA();
+        activateHomeExit();        
+      } else if (countTimer >=9) {
+        Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();        
+      };
+
+      showExtraOutcome = false;
+      countTimer = 0;
+      stop('tick');
+    }
+
+
+    console.log("Optimum Outcome");
+    // alert("Optimum Outcome");
+  }
+
+  function Rapid_Growth() {
+
+    var Tubs_brown = document.createElement("IMG");
+    Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
+    Tubs_brown.setAttribute("class", "slide");
+    Tubs_brown.setAttribute("alt", "Forth");
+    document.getElementById("slider_img").appendChild(Tubs_brown);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+
+    harvest();
+
+    document.getElementById("btnImgHav").style.display = "none";
+
+    if (Sun == 0) {
+      No_Growth();
+      console.log("Sun 0");
+    }else{
+      var Tubs_brown = document.createElement("IMG");
+      Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
+    Tubs_brown.setAttribute("class", "slide");
+    Tubs_brown.setAttribute("alt", "Forth");
+    document.getElementById("slider_img").appendChild(Tubs_brown);
+
+    var Tubs_black = document.createElement("IMG");
+    Tubs_black.setAttribute("src", "img/Tubs-black.png");
+    Tubs_black.setAttribute("class", "slide");
+    Tubs_black.setAttribute("alt", "Fifth");
+    document.getElementById("slider_img").appendChild(Tubs_black);
+        Outcome.setAttribute("src", "img/Algae_Assets/Rapid-Growth.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+    };
+
+
+
+    // show result image
+    document.getElementById("btnImgHav").onclick = function() {
+      play('growBtn');
+      if (countTimer < 3) {        
+        Outcome.setAttribute("src", "img/Try-Again.png");
+        Outcome.setAttribute("class", "img_result");
+        Outcome.setAttribute("id", "try_againImg");
+
+        document.getElementById("slider_img").appendChild(Outcome);
+
+        document.getElementById("try_againImg").onclick = function() {
+          play('growBtn');
+          window.location.href = 'home.html';
+
+      // document.getElementById("btnImgHav").disabled = true;
+      document.getElementById("btnImgHav").style.display = "none";
+        }
+      } else if(Sun== 0){
+        No_Growth()
+        document.getElementById("btnImgHav").style.display = "none";
+      } else{
+        Outcome.setAttribute("src", "img/Algae_Assets/Rapid-Growth.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
@@ -818,6 +942,7 @@
 
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
+      play('growBtn');
       Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
       Outcome.setAttribute("class", "img_result");
       document.getElementById("slider_img").appendChild(Outcome);
@@ -825,7 +950,7 @@
 
       hideShowCTA();
       activateHomeExit();
-      stop('tick');
+      
 
       showExtraOutcome = false;
       // hideShowCTA();
@@ -875,7 +1000,9 @@
     // show result image
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
+      play('growBtn');
       if (countTimer < 3) {
+        
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
@@ -883,24 +1010,36 @@
         document.getElementById("slider_img").appendChild(Outcome);
 
         document.getElementById("try_againImg").onclick = function() {
-
+          play('growBtn');
           window.location.href = 'home.html';
 
+          // document.getElementById("btnImgHav").disabled = true;
           document.getElementById("btnImgHav").style.display = "none";
         }
-      } else {
+      } else if (countTimer >=3 && countTimer < 5){
+        Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+        document.getElementById("btnImgHav").style.display = "none";
+      } else if (countTimer >=5 && countTimer < 7) {
         Outcome.setAttribute("src", "img/Algae_Assets/Medium-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         document.getElementById("btnImgHav").style.display = "none";
-
         hideShowCTA();
-        activateHomeExit();
-      }
+        activateHomeExit();        
+      } else if (countTimer >=8) {
+        Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();        
+      };
+
       showExtraOutcome = false;
       countTimer = 0;
-      stop('tick');
-
     }
 
 
@@ -943,28 +1082,61 @@
 
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
+      play('growBtn');
       if (countTimer < 3) {
+
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
+
         document.getElementById("slider_img").appendChild(Outcome);
 
         document.getElementById("try_againImg").onclick = function() {
-
+          play('growBtn');
           window.location.href = 'home.html';
-          document.getElementById("btnImgHav").style.display = "none";
+
+      // document.getElementById("btnImgHav").disabled = true;
+      document.getElementById("btnImgHav").style.display = "none";
         }
-      } else {
+      } else if (countTimer >=3 && countTimer < 5){
         Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
+        Outcome.setAttribute("class", "img_result");
+        document.getElementById("slider_img").appendChild(Outcome);
+        hideShowCTA();
+        activateHomeExit();
+      document.getElementById("btnImgHav").style.display = "none";
+      } else if (countTimer >=5) {
+        Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         document.getElementById("btnImgHav").style.display = "none";
         hideShowCTA();
-        activateHomeExit();
+        activateHomeExit();        
       }
+
+      // if (countTimer < 3) {
+
+
+      //   Outcome.setAttribute("src", "img/Try-Again.png");
+      //   Outcome.setAttribute("class", "img_result");
+      //   Outcome.setAttribute("id", "try_againImg");
+      //   document.getElementById("slider_img").appendChild(Outcome);
+
+      //   document.getElementById("try_againImg").onclick = function() {
+
+      //     window.location.href = 'home.html';
+      //     document.getElementById("btnImgHav").style.display = "none";
+      //   }
+      // } else {
+      //   Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
+      //   Outcome.setAttribute("class", "img_result");
+      //   document.getElementById("slider_img").appendChild(Outcome);
+      //   document.getElementById("btnImgHav").style.display = "none";
+      //   hideShowCTA();
+      //   activateHomeExit();
+      // }
       showExtraOutcome = false;
       countTimer = 0;
-      stop('tick');
     }
 
     console.log("Low Growth");
@@ -974,7 +1146,7 @@
   function Burnt(){
     // show result image
     // document.getElementById("btnImgGrow").onclick = function() {
-    Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
+    Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
     Outcome.setAttribute("class", "img_result");
     document.getElementById("slider_img").appendChild(Outcome);
     document.getElementById("btnImgHav").style.display = "none";
@@ -1014,21 +1186,21 @@
     //call this when play again is clicked
     console.log("Play Again 0");
     document.getElementById("Playagain").onclick = function() {
-        // play('growBtn');
+        play('growBtn');
         window.location.href = 'home.html';
         console.log("Play Again");
       }
       // call this wwhen exit is clicked
     document.getElementById("Exit").onclick = function() {
-      // play('growBtn');
+      play('growBtn');
       window.location.href = 'index.html';
       console.log("Exit");
     }
   }
 
   function play(id) {
-    // var audio = document.getElementById(id);
-    // audio.play();
+    var audio = document.getElementById(id);
+    audio.play();
   }
 
   function stop(id) {
