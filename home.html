@@ -110,7 +110,8 @@
       height: 101%;
       opacity: 0;
       transition: opacity 1s linear;
-      z-index: 10;    }
+      z-index: 10;
+    }
     
     #slider_img {
       height: 100%;
@@ -196,96 +197,96 @@
   <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 </p> -->
     <div id="block_sliders">
-    <div id="controls" style="width:66%; border-style: solid;
+      <div id="controls" style="width:66%; border-style: solid;
     border-width: 8px; background-color: #111d2d;height:95%; display: inline-block; margin-left:20px">
-    <div id="block_sliders">
-      <div id="sun_control" style="display:inline-block; margin-left:80px;">
-        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:48px;">
-          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
-          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
-          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
-        </div>
-        <div id="temp_slider_1" style="display:inline-block;">
-          <div><img src="img/TOP.png" style="" alt=""></div>
-          <div id="slider" class="sun_slider" style="margin-top: -6px;"></div>
-          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
-        </div>
-        <div class="slider_txt" style="margin-left:60px;">
-          <img src="img/sun.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
-          <span><h1 class="variable_tag" style="display:inline-block;">SUN</h1></span>
+        <div id="block_sliders">
+          <div id="sun_control" style="display:inline-block; margin-left:80px;">
+            <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:48px;">
+              <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+              <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+              <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+            </div>
+            <div id="temp_slider_1" style="display:inline-block;">
+              <div><img src="img/TOP.png" style="" alt=""></div>
+              <div id="slider" class="sun_slider" style="margin-top: -6px;"></div>
+              <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+            </div>
+            <div class="slider_txt" style="margin-left:60px;">
+              <img src="img/sun.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+              <span><h1 class="variable_tag" style="display:inline-block;">SUN</h1></span>
+            </div>
+          </div>
+          <div id="temp_control" style="display:inline-block;">
+            <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:168px;">
+              <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+              <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+              <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+            </div>
+            <div id="temp_slider_1" style="display:inline-block;">
+              <div><img src="img/TOP.png" style="" alt=""></div>
+              <div id="slider" class="temprature_slider" style="margin-top: -6px;"></div>
+              <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+            </div>
+            <div class="slider_txt" style="margin-left:144px;">
+              <img src="img/temperature.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+              <span><h1 class="variable_tag" style="display:inline-block;">TEMPERATURE</h1></span>
+            </div>
+          </div>
+          <div id="nutrients_control" style="display:inline-block;">
+            <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:120px;">
+              <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+              <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+              <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+            </div>
+            <div id="temp_slider_1" style="display:inline-block;">
+              <div><img src="img/TOP.png" style="" alt=""></div>
+              <div id="slider" class="nutrients_slider" style="margin-top: -6px;"></div>
+              <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+            </div>
+            <div class="slider_txt" style="margin-left:111px;">
+              <img src="img/nutrients.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
+              <span><h1 class="variable_tag" style="display:inline-block;">NUTRIENTS</h1></span>
+            </div>
+          </div>
+          <div id="diversity_control" style="display:inline-block;">
+            <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
+              <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
+              <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
+              <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
+            </div>
+            <div id="temp_slider_1" style="display:inline-block;">
+              <div><img src="img/TOP.png" style="" alt=""></div>
+              <div id="slider" class="diversity_slider" style="margin-top: -6px;"></div>
+              <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
+            </div>
+            <div class="slider_txt" style="margin-left:78px;">
+              <img src="img/diversity.png" alt="" style="display:inline-block; vertical-align:sub;">
+              <span><h1 class="variable_tag" style="display:inline-block;">DIVERSITY</h1></span>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="temp_control" style="display:inline-block;">
-        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:168px;">
-          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
-          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
-          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
-        </div>
-        <div id="temp_slider_1" style="display:inline-block;">
-          <div><img src="img/TOP.png" style="" alt=""></div>
-          <div id="slider" class="temprature_slider" style="margin-top: -6px;"></div>
-          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
-        </div>
-        <div class="slider_txt" style="margin-left:144px;">
-          <img src="img/temperature.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
-          <span><h1 class="variable_tag" style="display:inline-block;">TEMPERATURE</h1></span>
-        </div>
-      </div>
-      <div id="nutrients_control" style="display:inline-block;">
-        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:120px;">
-          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
-          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
-          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
-        </div>
-        <div id="temp_slider_1" style="display:inline-block;">
-          <div><img src="img/TOP.png" style="" alt=""></div>
-          <div id="slider" class="nutrients_slider" style="margin-top: -6px;"></div>
-          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
-        </div>
-        <div class="slider_txt" style="margin-left:111px;">
-          <img src="img/nutrients.png" alt="" style="display:inline-block; vertical-align:sub; padding-right:5px;">
-          <span><h1 class="variable_tag" style="display:inline-block;">NUTRIENTS</h1></span>
-        </div>
-      </div>
-      <div id="diversity_control" style="display:inline-block;">
-        <div id="scale" style="display:inline-block; vertical-align:top; text-align:right; margin-left:98px;">
-          <h3 style="margin-bottom:40px;">HIGH &mdash;</h3>
-          <h3 style="margin-bottom:55px;">MEDIUM &mdash;</h3>
-          <h3 style="margin-bottom:0px;">LOW &mdash;</h3>
-        </div>
-        <div id="temp_slider_1" style="display:inline-block;">
-          <div><img src="img/TOP.png" style="" alt=""></div>
-          <div id="slider" class="diversity_slider" style="margin-top: -6px;"></div>
-          <div><img src="img/LOW.png" style="margin-left:-1.0px;" alt=""></div>
-        </div>
-        <div class="slider_txt" style="margin-left:78px;">
-          <img src="img/diversity.png" alt="" style="display:inline-block; vertical-align:sub;">
-          <span><h1 class="variable_tag" style="display:inline-block;">DIVERSITY</h1></span>
-        </div>
-      </div>
-    </div>
-    </div>
 
 
-    <div id="cycler" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10">
+      <div id="cycler" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10">
 
-      <!-- <input type="image" src="img/Grow.png" style="margin-right:40px;" id="btnImgGrow"/>
+        <!-- <input type="image" src="img/Grow.png" style="margin-right:40px;" id="btnImgGrow"/>
   <input type="image" src="img/Harvest.png" id="btnImgHav"  style="cursor:pointer;"/> -->
 
-      <input type="image" src="img/Grow.png" id="btnImgGrow" style="margin-right:20px" />
-      <!-- <input type="image" src="img/Harvest.png" id="btnImgHav" /> -->
+        <input type="image" src="img/Grow.png" id="btnImgGrow" style="margin-right:20px" />
+        <!-- <input type="image" src="img/Harvest.png" id="btnImgHav" /> -->
 
-      <input type="image" src="img/Playagain.png" id="Playagain" style="margin-right:20px; display: none;" />
-      <input type="image" src="img/Exit.png" id="Exit" style="display: none;" />
-      <!-- <div id = "PlayExit" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10"></div> -->
+        <input type="image" src="img/Playagain.png" id="Playagain" style="margin-right:20px; display: none;" />
+        <input type="image" src="img/Exit.png" id="Exit" style="display: none;" />
+        <!-- <div id = "PlayExit" style="display: inline-block; vertical-align: super; margin-left:50px; z-index:10"></div> -->
+      </div>
+
+
+
     </div>
 
 
-
-  </div>
-
-
-  <!-- <div id="cf2" class="shadow">
+    <!-- <div id="cf2" class="shadow">
   <img class="bottom" src="img/Consel.jpg" />
   <img class="top" src="img/Tubs_black.jpg" />
   <img src='img/Tubs_dark_green.jpg' />
@@ -296,6 +297,11 @@
 
 
 </body>
+
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+
 
 <script>
   var Sun = 1;
@@ -322,7 +328,7 @@
         //get value set tem value
         Temp = ui.value;
         console.log("Value of Temperature slider: " + ui.value);
-        // play('toggleBtn');
+        play('toggleBtn');
       }
     });
 
@@ -340,7 +346,7 @@
         $("#amount").val("$" + ui.value);
         Sun = ui.value;
         console.log("Value of Sun slider: " + ui.value);
-        // play('toggleBtn');
+        play('toggleBtn');
       }
     });
 
@@ -356,7 +362,7 @@
         $("#amount").val("$" + ui.value);
         Nutrients = ui.value;
         console.log("Value of Nutrients slider: " + ui.value);
-        // play('toggleBtn');
+        play('toggleBtn');
       }
     });
 
@@ -372,7 +378,7 @@
         $("#amount").val("$" + ui.value);
         diversity = ui.value;
         console.log("Value of Diversity slider: " + ui.value);
-        // play('toggleBtn');
+        play('toggleBtn');
       }
     });
 
@@ -424,9 +430,9 @@
     },
     _slideTo: function(slide) {
       var currentSlide = this.slides[slide];
-      currentSlide.style.opacity = 1;
+      currentSlide.style.opacity = 1;      
 
-      for (var i = 1; i < this.slides.length; i++) {
+      for (var i = 0; i < this.slides.length; i++) {
         var slide = this.slides[i];
         if (slide !== currentSlide) {
           slide.style.opacity = 0;
@@ -436,16 +442,15 @@
 
     action: function() {
       var self = this;
-      // play('tick');
-      
-      if (self.index == 0){
-        self._slideTo(self.index);
-        self.index++;
-      } 
+      play('tick');
 
-      if (self.index > 0){
-        self.timer = setInterval(function() {
-          self.index++;
+      if (self.index == 0) {
+        self._slideTo(self.index);
+        self.index = 1;
+      }
+
+      if (self.index > 0) {
+        self.timer = setInterval(function() {          
 
           if (self.index == self.slides.length) {
 
@@ -455,10 +460,9 @@
             clearInterval(self.timer);
             self.timer = null;
             self.index = 0;
-
-
           }
           self._slideTo(self.index);
+          self.index++;
 
         }, 3000);
       }
@@ -501,137 +505,114 @@
 
   function testGrow() {
 
-    
-    // if (Sun == 2 && Temp == 1 && Nutrients == 1 && diversity == 1 || diversity == 2) { //Subset of Crash
-    //     optimum_out_come();
-    //     var slider = new Slideshow("#main-slider");
-    // } else if (Sun == 0) {
-    //     No_Growth();
-    //     // var slider = new Slideshow("#main-slider");
-    // } else if (Sun > 0 && Temp == 2 && Nutrients == 2 && diversity >= 0) {
-    //     Crash();
-    //     var slider = new Slideshow("#main-slider");
-    // } else if (Sun == 1 && Temp == 1 && Nutrients == 1 && diversity > 0) {
-    //     Medium_Growth();
-    //     var slider = new Slideshow("#main-slider");
-    // } else if (Sun >= 1 && Temp == 0 && Nutrients == 0 && diversity >= 0) {
-    //     Low_Growth();
-    //     var slider = new Slideshow("#main-slider");
-    // } else {
-    //     console.log("Please be realistic with your settings");
-    //     alert("Please try different settings!");
-    // };
-
-    
-
     var index = Sun + "" + Temp + "" + Nutrients + "" + diversity;
     console.log(index);
 
 
 
-    switch (index){
-        // Optimum Growth:
-        case "2111":
-            optimum_out_come();
-            var slider = new Slideshow("#main-slider");
-            break;
+    switch (index) {
+      // Optimum Growth:
+      case "2111":
+        optimum_out_come();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2112":
-            optimum_out_come();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "2112":
+        optimum_out_come();
+        var slider = new Slideshow("#main-slider");
+        break;
 
         // Low Growth:
-        case "2101":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "2101":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1201":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "1201":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1010":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "1010":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1100":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;   
+      case "1100":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1000":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1000":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2001":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "2001":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2002":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "2002":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1002":
-            Low_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;      
+      case "1002":
+        Low_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
         // Medium Growth:
-        case "1111":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "1111":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2201":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;  
+      case "2201":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2021":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "2021":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "2011":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "2011":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1211":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1211":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1021":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1021":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1011":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1011":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1101":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1101":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1110":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break; 
+      case "1110":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
-        case "1112":
-            Medium_Growth();
-            var slider = new Slideshow("#main-slider");
-            break;
+      case "1112":
+        Medium_Growth();
+        var slider = new Slideshow("#main-slider");
+        break;
 
         // // Crash:
         // case "2211":
@@ -680,20 +661,20 @@
         //     break;  
 
         // Everything else - No Growth
-        default:
+      default:
         // NoGrowthCrushRapid();
         Rapid_Growth();
         var slider = new Slideshow("#main-slider")
-            break;
+        break;
     }
 
-      setInterval(function() {
-        countTimer = countTimer + 1;
-        console.log("Sec - " + countTimer);
-      }, 1000);
+    setInterval(function() {
+      countTimer = countTimer + 1;
+      console.log("Sec - " + countTimer);
+    }, 1000);
   }
 
-  function NoGrowthCrushRapid(){
+  function NoGrowthCrushRapid() {
 
     if (Sun == 0) {
       No_Growth();
@@ -710,7 +691,7 @@
 
   //Haverst btn
 
-  function harvest(){
+  function harvest() {
     var HarvestBtn = document.createElement("INPUT");
     HarvestBtn.setAttribute("type", "image")
     HarvestBtn.setAttribute("src", "img/Harvest.png");
@@ -719,6 +700,7 @@
 
 
     //hide grow btn
+    document.getElementById("btnImgHav").setAttribute("style", "margin-left:" + 250 + "px");
     document.getElementById("btnImgGrow").style.display = "none";
 
     //disable grow btn
@@ -728,7 +710,7 @@
 
   // set slider div background
 
-  function blocksliders(){
+  function blocksliders() {
     document.getElementById("block_sliders").style.background = "red";
     document.getElementById("block_sliders").style.zIndex = 1000;
   }
@@ -777,40 +759,41 @@
       document.getElementById("btnImgHav").style.display = "none";
       play('growBtn');
       if (countTimer < 3) {
-        
+        stop('tick');
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
-
         document.getElementById("slider_img").appendChild(Outcome);
+
+        hideAllButton();
 
         document.getElementById("try_againImg").onclick = function() {
           play('growBtn');
+          hideShowCTA();
           window.location.href = 'home.html';
-
-      // document.getElementById("btnImgHav").disabled = true;
-      document.getElementById("btnImgHav").style.display = "none";
+          // document.getElementById("btnImgHav").disabled = true;
+          document.getElementById("btnImgHav").style.display = "none";
         }
-      } else if (countTimer >=3 && countTimer < 6){
+      } else if (countTimer >= 3 && countTimer < 6) {
         Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
         activateHomeExit();
-      document.getElementById("btnImgHav").style.display = "none";
-      } else if (countTimer >=6 && countTimer < 9) {
+        document.getElementById("btnImgHav").style.display = "none";
+      } else if (countTimer >= 6 && countTimer < 9) {
         Outcome.setAttribute("src", "img/Algae_Assets/Optimum-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         document.getElementById("btnImgHav").style.display = "none";
         hideShowCTA();
-        activateHomeExit();        
-      } else if (countTimer >=9) {
+        activateHomeExit();
+      } else if (countTimer >= 9) {
         Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
-        activateHomeExit();        
+        activateHomeExit();
       };
 
       showExtraOutcome = false;
@@ -825,11 +808,11 @@
 
   function Rapid_Growth() {
 
-    var Tubs_brown = document.createElement("IMG");
-    Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
-    Tubs_brown.setAttribute("class", "slide");
-    Tubs_brown.setAttribute("alt", "Forth");
-    document.getElementById("slider_img").appendChild(Tubs_brown);
+    var Tubs_dark_green = document.createElement("IMG");
+    Tubs_dark_green.setAttribute("src", "img/Tubs-dark-green.png");
+    Tubs_dark_green.setAttribute("class", "slide");
+    Tubs_dark_green.setAttribute("alt", "Third");
+    document.getElementById("slider_img").appendChild(Tubs_dark_green);
 
     var Tubs_black = document.createElement("IMG");
     Tubs_black.setAttribute("src", "img/Tubs-black.png");
@@ -839,67 +822,70 @@
 
     harvest();
 
-    document.getElementById("btnImgHav").style.display = "none";
+    // document.getElementById("btnImgHav").style.display = "none";
 
     if (Sun == 0) {
       No_Growth();
       console.log("Sun 0");
-    }else{
+    } 
+
+    /*else {
       var Tubs_brown = document.createElement("IMG");
       Tubs_brown.setAttribute("src", "img/Tubs-brown.png");
-    Tubs_brown.setAttribute("class", "slide");
-    Tubs_brown.setAttribute("alt", "Forth");
-    document.getElementById("slider_img").appendChild(Tubs_brown);
+      Tubs_brown.setAttribute("class", "slide");
+      Tubs_brown.setAttribute("alt", "Forth");
+      document.getElementById("slider_img").appendChild(Tubs_brown);
 
-    var Tubs_black = document.createElement("IMG");
-    Tubs_black.setAttribute("src", "img/Tubs-black.png");
-    Tubs_black.setAttribute("class", "slide");
-    Tubs_black.setAttribute("alt", "Fifth");
-    document.getElementById("slider_img").appendChild(Tubs_black);
-        Outcome.setAttribute("src", "img/Algae_Assets/Rapid-Growth.png");
-        Outcome.setAttribute("class", "img_result");
-        document.getElementById("slider_img").appendChild(Outcome);
-        hideShowCTA();
-        activateHomeExit();
+      var Tubs_black = document.createElement("IMG");
+      Tubs_black.setAttribute("src", "img/Tubs-black.png");
+      Tubs_black.setAttribute("class", "slide");
+      Tubs_black.setAttribute("alt", "Fifth");
+      document.getElementById("slider_img").appendChild(Tubs_black);
+      Outcome.setAttribute("src", "img/Algae_Assets/Rapid-Growth.png");
+      Outcome.setAttribute("class", "img_result");
+      document.getElementById("slider_img").appendChild(Outcome);
+      hideShowCTA();
+      activateHomeExit();
     };
+    */    
 
 
 
     // show result image
     document.getElementById("btnImgHav").onclick = function() {
       play('growBtn');
-      if (countTimer < 3) {        
+      if (countTimer < 3) {
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
-
         document.getElementById("slider_img").appendChild(Outcome);
+        hideAllButton();
 
         document.getElementById("try_againImg").onclick = function() {
           play('growBtn');
+          hideShowCTA();
           window.location.href = 'home.html';
 
-      // document.getElementById("btnImgHav").disabled = true;
-      document.getElementById("btnImgHav").style.display = "none";
+          // document.getElementById("btnImgHav").disabled = true;
+          document.getElementById("btnImgHav").style.display = "none";
         }
-      } else if(Sun== 0){
+      } else if (Sun == 0) {
         No_Growth()
         document.getElementById("btnImgHav").style.display = "none";
-      } else{
+      } else {
         Outcome.setAttribute("src", "img/Algae_Assets/Rapid-Growth.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
         activateHomeExit();
-      // document.getElementById("btnImgHav").disabled = true;
-      document.getElementById("btnImgHav").style.display = "none";
+        // document.getElementById("btnImgHav").disabled = true;
+        document.getElementById("btnImgHav").style.display = "none";
       }
 
       showExtraOutcome = false;
-      countTimer = 0;
-      stop('tick');
-    }
-
+      countTimer = 0;   
+      stop('tick'); 
+    }    
 
     console.log("Optimum Outcome");
     // alert("Optimum Outcome");
@@ -950,12 +936,12 @@
 
       hideShowCTA();
       activateHomeExit();
-      
+
 
       showExtraOutcome = false;
       // hideShowCTA();
       // activateHomeExit();
-      
+
     }
 
     console.log("Crash Crash");
@@ -1002,44 +988,48 @@
     document.getElementById("btnImgHav").onclick = function() {
       play('growBtn');
       if (countTimer < 3) {
-        
+
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
-
-        document.getElementById("slider_img").appendChild(Outcome);
+        hideAllButton();
+        document.getElementById("slider_img").appendChild(Outcome);        
+        
 
         document.getElementById("try_againImg").onclick = function() {
           play('growBtn');
+          hideShowCTA();
           window.location.href = 'home.html';
 
           // document.getElementById("btnImgHav").disabled = true;
           document.getElementById("btnImgHav").style.display = "none";
         }
-      } else if (countTimer >=3 && countTimer < 5){
+      } else if (countTimer >= 3 && countTimer < 5) {
         Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
         activateHomeExit();
+
         document.getElementById("btnImgHav").style.display = "none";
-      } else if (countTimer >=5 && countTimer < 7) {
+      } else if (countTimer >= 5 && countTimer < 7) {
         Outcome.setAttribute("src", "img/Algae_Assets/Medium-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         document.getElementById("btnImgHav").style.display = "none";
         hideShowCTA();
-        activateHomeExit();        
-      } else if (countTimer >=8) {
+        activateHomeExit();
+      } else if (countTimer >= 8) {
         Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
-        activateHomeExit();        
+        activateHomeExit();
       };
 
       showExtraOutcome = false;
       countTimer = 0;
+      stop('tick');
     }
 
 
@@ -1088,30 +1078,32 @@
         Outcome.setAttribute("src", "img/Try-Again.png");
         Outcome.setAttribute("class", "img_result");
         Outcome.setAttribute("id", "try_againImg");
-
         document.getElementById("slider_img").appendChild(Outcome);
+
+        hideAllButton();
 
         document.getElementById("try_againImg").onclick = function() {
           play('growBtn');
+          hideShowCTA();
           window.location.href = 'home.html';
 
-      // document.getElementById("btnImgHav").disabled = true;
-      document.getElementById("btnImgHav").style.display = "none";
+          // document.getElementById("btnImgHav").disabled = true;
+          document.getElementById("btnImgHav").style.display = "none";
         }
-      } else if (countTimer >=3 && countTimer < 5){
+      } else if (countTimer >= 3 && countTimer < 5) {
         Outcome.setAttribute("src", "img/Algae_Assets/Low-Outcome.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         hideShowCTA();
-        activateHomeExit();
-      document.getElementById("btnImgHav").style.display = "none";
-      } else if (countTimer >=5) {
+        activateHomeExit();        
+        document.getElementById("btnImgHav").style.display = "none";
+      } else if (countTimer >= 5) {
         Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
         Outcome.setAttribute("class", "img_result");
         document.getElementById("slider_img").appendChild(Outcome);
         document.getElementById("btnImgHav").style.display = "none";
         hideShowCTA();
-        activateHomeExit();        
+        activateHomeExit();
       }
 
       // if (countTimer < 3) {
@@ -1135,6 +1127,7 @@
       //   hideShowCTA();
       //   activateHomeExit();
       // }
+      stop('tick');
       showExtraOutcome = false;
       countTimer = 0;
     }
@@ -1143,7 +1136,7 @@
   }
 
 
-  function Burnt(){
+  function Burnt() {
     // show result image
     // document.getElementById("btnImgGrow").onclick = function() {
     Outcome.setAttribute("src", "img/Algae_Assets/CRASH.png");
@@ -1173,7 +1166,7 @@
 
     //Hide the grow and harvest Buttons
     document.getElementById("btnImgGrow").style.display = "none";
-    // document.getElementById("btnImgHav").style.display = "none";
+    document.getElementById("btnImgHav").style.display = "none";
 
     console.log("Clicked harvest 0");
     //Show the Play Again and Exit Buttons
@@ -1198,6 +1191,15 @@
     }
   }
 
+
+  function hideAllButton(){
+    hideShowCTA();
+    document.getElementById("btnImgGrow").style.display = "none";
+    document.getElementById("btnImgHav").style.display = "none";
+    document.getElementById("Playagain").style.display = "none";
+    document.getElementById("Exit").style.display = "none";
+  }
+
   function play(id) {
     var audio = document.getElementById(id);
     audio.play();
@@ -1206,9 +1208,9 @@
   function stop(id) {
     // console.log(id);
 
-    // var audio = document.getElementById(id);
-    // audio.pause();
-    // audio.currentTime = 0;
+    var audio = document.getElementById(id);
+    audio.pause();
+    audio.currentTime = 0;
   }
 </script>
 
