@@ -442,7 +442,7 @@
 
     action: function() {
       var self = this;
-      play('tick');
+      // play('tick');
 
       if (self.index == 0) {
         self._slideTo(self.index);
@@ -678,6 +678,7 @@
   function NoGrowthCrushRapid() {
 
     if (Sun == 0) {
+      stop('tick');
       No_Growth();
     };
 
@@ -804,6 +805,7 @@
 
 
     console.log("Optimum Outcome");
+    stop('tick');
     // alert("Optimum Outcome");
   }
 
@@ -830,8 +832,9 @@
       activateHomeExit();
       showExtraOutcome = false;
       countTimer = 0;   
-      stop('tick'); 
+       
       No_Growth();
+      stop('tick');
       console.log("Sun 0");
 
     } 
@@ -877,6 +880,7 @@
           document.getElementById("btnImgHav").style.display = "none";
         }
       } else if (Sun == 0) {
+        stop('tick');
         No_Growth()
         document.getElementById("btnImgHav").style.display = "none";
       } else {
@@ -902,6 +906,7 @@
   function No_Growth() {
     // show result image
     // document.getElementById("btnImgGrow").onclick = function() {
+    
     Outcome.setAttribute("src", "img/Algae_Assets/No-Growth.png");
     Outcome.setAttribute("class", "img_result");
     document.getElementById("slider_img").appendChild(Outcome);
@@ -913,8 +918,9 @@
 
     // }
 
+    
+    console.log("No Growth called");
     stop('tick');
-    console.log("No Growth");
     // alert("No Growth");
   }
 
@@ -1213,11 +1219,39 @@
   }
 
   function stop(id) {
-    // console.log(id);
+    console.log('stop tick called');
 
     var audio = document.getElementById(id);
     audio.pause();
     audio.currentTime = 0;
+  }
+
+
+  //RELOAD PAGE AFTER 3 mins of Inactivity.
+  var IDLE_TIMEOUT = 180; //seconds
+  var _idleSecondsCounter = 0;
+  document.onclick = function() {
+    _idleSecondsCounter = 0;
+  };
+  document.onmousemove = function() {
+    _idleSecondsCounter = 0;
+  };
+  document.onkeypress = function() {
+    _idleSecondsCounter = 0;
+  };
+
+  var myInterval = window.setInterval(CheckIdleTime, 1000);
+
+  function CheckIdleTime() {
+    _idleSecondsCounter++;
+    
+    if (_idleSecondsCounter >= IDLE_TIMEOUT) {
+      console.log(_idleSecondsCounter);
+      
+      window.clearInterval(myInterval);
+      location.reload();
+      
+    }
   }
 </script>
 
